@@ -1,0 +1,113 @@
+/* General Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary: #e74c3c;
+    --secondary: #2c3e50;
+    --text: #333;
+    --transition: all 0.3s ease;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(8px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+}
+.nav-links { list-style: none; display: flex; gap: 25px; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
+.nav-links a.active, .nav-links a:hover { color: var(--primary); }
+
+/* Hero Sections */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+#bokeh-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.hero-content { z-index: 10; padding: 0 20px; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: 2px; }
+.cta-button {
+    display: inline-block;
+    padding: 12px 35px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* 路径修正点 1: 首页背景图使用 cjdq.jpg */
+.index-hero { 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/cjdq.jpg') center/cover no-repeat; 
+}
+
+/* 路径修正点 2: 深度页背景图使用 gz.jpg */
+.culture-hero { 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/gz.jpg') center/cover no-repeat; 
+}
+
+/* Content Section */
+.content-section { padding: 80px 10%; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
+.section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary); margin: 10px auto; }
+.section-subtitle { text-align: center; color: #777; margin-bottom: 50px; }
+
+/* Grid & Cards */
+.pillars { display: flex; gap: 30px; }
+.pillar { flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: var(--transition); background: white; }
+.pillar:hover { transform: translateY(-10px); }
+.pillar-image-wrap { height: 200px; overflow: hidden; }
+.pillar img { width: 100%; height: 100%; object-fit: cover; }
+.pillar-content { padding: 25px; }
+.pillar-icon { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
+
+/* Food Grid */
+.detail-intro { background: #fdf2f2; padding: 30px; border-left: 5px solid var(--primary); border-radius: 10px; margin-bottom: 40px; }
+.food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
+.food-item { padding: 30px; background: #fff; border: 1px solid #eee; border-radius: 15px; transition: var(--transition); }
+.food-item:hover { border-color: var(--primary); }
+
+/* Deep Dive Container */
+.deep-dive-container { display: flex; background: var(--secondary); color: white; border-radius: 20px; overflow: hidden; align-items: center; }
+.deep-dive-text { padding: 50px; flex: 1; }
+
+/* 路径修正点 3: 底部视觉图使用 hhl.jpg */
+.deep-dive-visual { 
+    flex: 1; 
+    height: 400px; 
+    background: url('images/hhl.jpg') center/cover no-repeat; 
+}
+
+/* Footer */
+footer { text-align: center; padding: 60px 10% 40px; background: #1a1a1a; color: #999; }
+.student-info { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 20px; display: inline-block; }
+.student-info p { margin: 5px 0; font-size: 0.9rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pillars { flex-direction: column; }
+    .hero h1 { font-size: 2rem; }
+    .deep-dive-container { flex-direction: column; }
+    .deep-dive-visual { width: 100%; height: 250px; }
+    .nav-links { display: none; }
+}
